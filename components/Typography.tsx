@@ -42,7 +42,7 @@ const typography = cva("", {
     },
     defaultVariants: {
         variant: "body",
-        color: "black",
+        color: "black"
     },
 });
 

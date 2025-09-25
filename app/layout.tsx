@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import LayoutGuide from "@/components/LayoutGuide";
+import Navigation from "@/components/Navigation";
 
 const geistSans = Geist({
   variable: "--font-heading",
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
+        <Navigation />
         {children}
         <LayoutGuide />
       </body>
