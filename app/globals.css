@@ -2,7 +2,9 @@
 
 :root {
   --background: #EBEBEB;
-  --foreground: #171717;
+  --foreground: #1d1d1d;
+  --black: #222222;
+  --white: #F0F0F0;
 }
 
 @theme inline {
@@ -10,6 +12,8 @@
   --color-foreground: var(--foreground);
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
+  --color-black: var(--black);
+  --color-white: var(--white);
 }
 
 @media (prefers-color-scheme: dark) {
