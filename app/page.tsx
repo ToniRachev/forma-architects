@@ -1,5 +1,9 @@
+import SectionContainer from "@/components/SectionContainer";
+
 export default function Page() {
   return (
-    <h1 className="font-body text-7xl">Hello, World!</h1>
+    <SectionContainer>
+      <h1>Hello world</h1>
+    </SectionContainer>
   )
 }
