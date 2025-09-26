@@ -37,8 +37,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
         <Navigation />
-        {children}
-        <LayoutGuide />
+        <main className="pt-[3rem]">
+          {children}
+        </main>
+        {/* <LayoutGuide /> */}
       </body>
     </html>
   );
