@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function About() {
     return (
         <div className="flex flex-col lg:flex-row lg:h-[100svh] gap-6 relative">
-            <div className="w-full flex flex-col justify-between gap-24 lg:gap-0 lg:py-24">
+            <div className="w-full flex flex-col justify-between gap-24 lg:gap-0 py-24">
                 <div>
                     <Typography className="max-w-[23ch]" variant={"bodyBoldUpper"}>
                         Forma Architects approaches every project with clarity and intention. We design spaces that merge beauty with lasting purpose.
@@ -32,7 +32,7 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="relative hidden lg:block w-full">
+            <div className="relative w-full aspect-[6/8]">
                 <Image
                     src={"/mockup-2.webp"}
                     alt="Mockup"
@@ -41,8 +41,8 @@ export default function About() {
                 />
             </div>
 
-            <div className="absolute left-0 lg:left-12 bottom-0">
-                <div className="origin-left -rotate-90 block">
+            <div className="absolute lg:bottom-0 left-0 lg:left-12 ">
+                <div className="lg:origin-left lg:-rotate-90 block">
                     <Typography variant={"hero"}>
                         About
                     </Typography>
