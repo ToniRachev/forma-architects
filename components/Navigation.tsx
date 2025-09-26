@@ -4,11 +4,11 @@ import Typography from "./Typography";
 
 export default function Navigation() {
     return (
-        <header className="w-full">
-            <SectionContainer className="flex justify-between border-b border-black py-4">
+        <header className="w-full fixed h-[3rem] flex items-center  border-b border-black">
+            <SectionContainer className="flex justify-between">
                 <div>
                     <Typography variant={"bodyBoldUpper"}>
-                        Format Architects
+                        Forma Architects
                     </Typography>
                 </div>
 
