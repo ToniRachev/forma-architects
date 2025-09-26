@@ -26,4 +26,30 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1 !important;
+  text-indent: -0.06em;
+}
+
+p {
+  line-height: 0.95 !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    /* Tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    /* Mobile */
+  }
 }
