@@ -1,18 +1,18 @@
-export interface ProjectDetails {
+export interface ProjectDetailsInterface {
     location: string;
     client: string;
     size: string;
     status: string;
 }
 
-export interface ProjectCredits {
+export interface ProjectCreditsInterface {
     leadArchitect: string;
     projectArchitect: string;
     interiorDesign: string;
     structuralEngineer: string;
 }
 
-export interface Project {
+export interface ProjectInterface {
     id: string;
     name: string;
     title: string;
@@ -20,11 +20,11 @@ export interface Project {
     year: number;
     description: string;
     image: string;
-    details: ProjectDetails;
-    credits: ProjectCredits;
+    details: ProjectDetailsInterface;
+    credits: ProjectCreditsInterface;
 }
 
-export const projects: Project[] = [
+export const projects: ProjectInterface[] = [
     {
         id: "01",
         name: "Casa Luminosa",
