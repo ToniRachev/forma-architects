@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import LayoutGuide from "@/components/LayoutGuide";
 import Navigation from "@/components/Navigation";
+import ScrollSmootherWrapper from "@/components/ScrollSmootherWrapper";
 
 const geistSans = Geist({
   variable: "--font-heading",
@@ -37,9 +38,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
         <Navigation />
-        <main className="pt-[3rem]">
-          {children}
-        </main>
+        <ScrollSmootherWrapper>
+          <main className="pt-[3rem]">
+            {children}
+          </main>
+        </ScrollSmootherWrapper>
         {/* <LayoutGuide /> */}
       </body>
     </html>
