@@ -44,12 +44,12 @@ const ProjectCard = ({ project, orientation }: Readonly<ProjectCardProps>) => {
 export default function FeaturedProjects() {
     return (
         <div>
-            <div className="w-full flex justify-between">
+            <div className="w-full flex flex-col lg:flex-row justify-between pt-24 lg:pt-0">
                 <Typography variant={"hero"} className="max-w-[20ch]">
                     Architectural Highlights
                 </Typography>
 
-                <div className="self-end">
+                <div className="pt-2 lg:pt-0 lg:self-end">
                     <Typography variant={"bodyBoldUpper"} className="max-w-[30ch]">
                         Showcasing a selection of projects that reflect our design ethos. Each space is crafted with clarity, context, and a commitment to timeless form.
                     </Typography>
