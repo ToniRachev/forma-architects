@@ -1,10 +1,10 @@
 import Typography from "@/components/Typography"
-import { Project, projects } from "@/lib/data/projects"
+import { ProjectInterface, projects } from "@/lib/data/projects"
 import clsx from "clsx";
 import Image from "next/image";
 
 interface ProjectCardProps {
-    project: Project;
+    project: ProjectInterface;
     orientation: "horizontal" | "vertical";
 }
 
