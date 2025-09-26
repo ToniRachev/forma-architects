@@ -8,7 +8,7 @@ interface SectionContainerProps {
 
 export default function SectionContainer({ className, children }: Readonly<SectionContainerProps>) {
     return (
-        <section className={clsx("w-full max-w-[112rem] mx-auto", className)}>
+        <section className={clsx("w-full px-[24px] mx-auto", className)}>
             {children}
         </section>
     )
