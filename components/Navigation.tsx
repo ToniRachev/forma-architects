@@ -4,7 +4,7 @@ import Typography from "./Typography";
 
 export default function Navigation() {
     return (
-        <header className="w-full fixed h-[3rem] flex items-center border-b border-black mix-blend-difference z-[999999999999] text-white">
+        <header className="w-full fixed h-[3rem] flex items-center border-b border-white mix-blend-difference z-[999999999999] text-white">
             <SectionContainer className="flex justify-between">
                 <div>
                     <Typography variant={"bodyBoldUpper"}>
