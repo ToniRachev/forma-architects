@@ -32,7 +32,7 @@ const Service = ({ service, active, onMouseEnter, onMouseLeave }: Readonly<Servi
         >
             <div ref={line} className="absolute inset-0 w-full h-full bg-black scale-y-0 origin-bottom" />
 
-            <Typography variant={"hero"} color={'white'} className="mix-blend-difference">
+            <Typography variant={"hero"} className="mix-blend-difference text-white">
                 {service.name}
             </Typography>
         </li>
