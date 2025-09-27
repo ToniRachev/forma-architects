@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { site } from "@/lib/data/site";
 import Typography from "./Typography";
-import { navigation } from "@/lib/data/navigation";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "@/lib/gsap-plugins";
 import SectionContainer from "./SectionContainer";
