@@ -6,6 +6,7 @@ import Typography from "@/components/Typography";
 import { ServiceInterface, services } from "@/lib/data/services";
 import Image from "next/image";
 import { MEDIA } from "@/lib/gsap-constants";
+import SectionContainer from "@/components/SectionContainer";
 
 interface ServiceProps {
     service: ServiceInterface;
@@ -81,41 +82,44 @@ export default function Services() {
     }, { dependencies: [activeHoverIndex] })
 
     return (
-        <div className="py-24 lg:py-0">
-            <div>
-                <Typography variant={"hero"} className="max-w-[10ch]">
-                    Our Approach to Design
-                </Typography>
+        <SectionContainer>
 
-                <Typography variant={"body"} className="max-w-prose pt-4">
-                    We offer a multidisciplinary approach to architecture, covering residential, public, cultural, and interior projects. Each service is tailored with precision and guided by a commitment to sustainability and timeless design.
-                </Typography>
-            </div>
+            <div className="py-24 lg:py-0">
+                <div>
+                    <Typography variant={"hero"} className="max-w-[10ch]">
+                        Our Approach to Design
+                    </Typography>
 
-            <ul className="w-full lg:h-[100svh] my-24 lg:my-36 flex flex-col gap-4 lg:gap-0 justify-center relative">
-                {services.map((service, index) => (
-                    <Fragment key={service.id}>
-                        <Service
-                            service={service}
-                            onMouseEnter={() => setActiveHoverIndex(index)}
-                            onMouseLeave={() => setActiveHoverIndex(null)}
-                            active={index === activeHoverIndex}
-                        />
+                    <Typography variant={"body"} className="max-w-prose pt-4">
+                        We offer a multidisciplinary approach to architecture, covering residential, public, cultural, and interior projects. Each service is tailored with precision and guided by a commitment to sustainability and timeless design.
+                    </Typography>
+                </div>
 
-                        <div
-                            ref={(element) => setRef(element, index)}
-                            className="absolute w-[20vw] h-[20svh] bottom-0 right-0 origin-top hidden lg:block"
-                        >
-                            <Image
-                                src={service.image}
-                                alt={`Photo of service ${service.name}`}
-                                fill
-                                className="object-cover"
+                <ul className="w-full lg:h-[100svh] my-24 lg:my-36 flex flex-col gap-4 lg:gap-0 justify-center relative">
+                    {services.map((service, index) => (
+                        <Fragment key={service.id}>
+                            <Service
+                                service={service}
+                                onMouseEnter={() => setActiveHoverIndex(index)}
+                                onMouseLeave={() => setActiveHoverIndex(null)}
+                                active={index === activeHoverIndex}
                             />
-                        </div>
-                    </Fragment>
-                ))}
-            </ul>
-        </div>
+
+                            <div
+                                ref={(element) => setRef(element, index)}
+                                className="absolute w-[20vw] h-[20svh] bottom-0 right-0 origin-top hidden lg:block"
+                            >
+                                <Image
+                                    src={service.image}
+                                    alt={`Photo of service ${service.name}`}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                        </Fragment>
+                    ))}
+                </ul>
+            </div>
+        </SectionContainer>
     )
 }

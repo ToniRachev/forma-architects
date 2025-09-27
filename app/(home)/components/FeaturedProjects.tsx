@@ -1,3 +1,4 @@
+import SectionContainer from "@/components/SectionContainer";
 import Typography from "@/components/Typography"
 import { ProjectInterface, projects } from "@/lib/data/projects"
 import clsx from "clsx";
@@ -43,7 +44,7 @@ const ProjectCard = ({ project, orientation }: Readonly<ProjectCardProps>) => {
 
 export default function FeaturedProjects() {
     return (
-        <div>
+        <SectionContainer>
             <div className="w-full flex flex-col lg:flex-row justify-between pt-24 lg:pt-0">
                 <Typography variant={"hero"} className="max-w-[20ch]">
                     Architectural Highlights
@@ -82,6 +83,6 @@ export default function FeaturedProjects() {
                     ))}
                 </div>
             </div>
-        </div>
+        </SectionContainer >
     )
 }
