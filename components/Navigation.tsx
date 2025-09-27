@@ -1,6 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import SectionContainer from "./SectionContainer";
 import Typography from "./Typography";
+import { navigation } from "@/lib/data/navigation";
+import Link from "next/link";
 
 export default function Navigation() {
     return (
@@ -14,11 +16,15 @@ export default function Navigation() {
 
                 <div>
                     <ul className="flex gap-8">
-                        <li>
-                            <Typography variant={"body"}>
-                                Menu
-                            </Typography>
-                        </li>
+                        {navigation.map((nav) => (
+                            <li key={nav.title}>
+                                <Link href={nav.href}>
+                                    <Typography variant={"body"}>
+                                        {nav.title}
+                                    </Typography>
+                                </Link>
+                            </li>
+                        ))}
 
                         <li className="hidden lg:block">
                             <div className="flex items-center gap-1 relative">
