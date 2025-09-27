@@ -3,15 +3,16 @@ import About from "./components/About";
 import FeaturedProjects from "./components/FeaturedProjects";
 import Services from "./components/Services";
 import Philosophy from "./components/Philosophy";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function Home() {
     return (
-        <div className="space-y-[200px]">
+        <PageWrapper>
             <Hero />
             <About />
             <FeaturedProjects />
             <Services />
             <Philosophy />
-        </div>
+        </PageWrapper>
     )
 }
