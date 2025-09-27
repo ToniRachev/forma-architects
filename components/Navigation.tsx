@@ -4,10 +4,10 @@ import Typography from "./Typography";
 
 export default function Navigation() {
     return (
-        <header className="w-full fixed h-[3rem] flex items-center border-b border-black mix-blend-difference z-[999999999999]">
+        <header className="w-full fixed h-[3rem] flex items-center border-b border-black mix-blend-difference z-[999999999999] text-white">
             <SectionContainer className="flex justify-between">
                 <div>
-                    <Typography variant={"bodyBoldUpper"} color="white">
+                    <Typography variant={"bodyBoldUpper"}>
                         Forma Architects
                     </Typography>
                 </div>
@@ -15,14 +15,14 @@ export default function Navigation() {
                 <div>
                     <ul className="flex gap-8">
                         <li>
-                            <Typography variant={"body"} color="white">
+                            <Typography variant={"body"}>
                                 Menu
                             </Typography>
                         </li>
 
                         <li className="hidden lg:block">
                             <div className="flex items-center gap-1 relative">
-                                <Typography variant={"body"} color="white">
+                                <Typography variant={"body"}>
                                     Get in Touch
                                 </Typography>
 
