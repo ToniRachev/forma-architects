@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Philosophy() {
     return (
-        <div className="w-full h-[100svh] flex flex-col justify-between lg:grid lg:grid-cols-3 lg:py-12 lg:gap-50">
+        <div className="w-full h-[100svh] flex flex-col justify-between lg:grid lg:grid-cols-3 lg:py-12 lg:gap-50  bg-background">
             <div className="flex flex-col justify-between">
                 <Typography variant={"hero"} className="max-w-[7ch]">
                     The Way we Think
