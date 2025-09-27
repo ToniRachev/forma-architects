@@ -4,8 +4,8 @@ export const navigation = [
         href: '/',
     },
     {
-        title: 'About',
-        href: '/about',
+        title: 'Studio',
+        href: '/studio',
     },
     {
         title: 'Services',
