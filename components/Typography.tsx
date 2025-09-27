@@ -35,21 +35,16 @@ const typography = cva("", {
             caption: "font-body font-light text-[clamp(0.75rem,1.5vw,0.875rem)]",           // 12px → 14px
             label: "font-body font-regular text-[clamp(0.625rem,1.2vw,0.75rem)]",           // 10px → 12px
         },
-        color: {
-            black: "text-black",
-            white: "text-white",
-        }
     },
     defaultVariants: {
         variant: "body",
-        color: "black"
     },
 });
 
-export default function Typography({ variant, className, color = "black", children, }: Readonly<TypographyProps>) {
+export default function Typography({ variant, className, children, }: Readonly<TypographyProps>) {
     const Component = variantToElement[variant];
 
     return (
-        <Component className={clsx(typography({ variant, color }), className)}>{children}</Component>
+        <Component className={clsx(typography({ variant }), className)}>{children}</Component>
     )
 }
