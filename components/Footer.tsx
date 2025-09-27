@@ -1,21 +1,12 @@
 'use client';
 
-import { ReactNode, useRef } from "react";
+import { useRef } from "react";
 import { site } from "@/lib/data/site";
 import Typography from "./Typography";
 import { navigation } from "@/lib/data/navigation";
-import { useTime } from "@/lib/hooks/useTime";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "@/lib/gsap-plugins";
 import SectionContainer from "./SectionContainer";
-
-interface ContactWrapperProps {
-    title: string;
-    children: ReactNode;
-}
-
-
-
 
 export default function Footer() {
     const footer = useRef<HTMLDivElement>(null);
@@ -25,12 +16,16 @@ export default function Footer() {
             trigger: footer.current,
             pin: true,
             start: "bottom bottom",
-            end: "+=100%"
+            end: "+=100%",
         })
     }, [])
 
     return (
-        <div ref={footer} className="w-full h-[100svh] bg-black py-[120px] text-white relative mt-[-100svh] -z-1">
+        <div ref={footer} className="w-full h-[100svh] bg-black py-[120px] text-white relative mt-[-100svh] -z-1"
+            style={{
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"
+            }}
+        >
             <SectionContainer className="h-full flex flex-col justify-between">
                 <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between lg:items-center">
                     <Typography variant={"bodyBoldUpper"}>
