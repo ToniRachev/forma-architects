@@ -5,6 +5,7 @@ import "./globals.css";
 import LayoutGuide from "@/components/LayoutGuide";
 import Navigation from "@/components/Navigation";
 import ScrollSmootherWrapper from "@/components/ScrollSmootherWrapper";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-heading",
@@ -42,6 +43,7 @@ export default function RootLayout({
           <main className="pt-[3rem]">
             {children}
           </main>
+          <Footer />
         </ScrollSmootherWrapper>
         {/* <LayoutGuide /> */}
       </body>
