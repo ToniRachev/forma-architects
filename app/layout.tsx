@@ -43,8 +43,8 @@ export default function RootLayout({
           <main className="pt-[3rem]">
             {children}
           </main>
-          <Footer />
         </ScrollSmootherWrapper>
+        {/* <Footer /> */}
         {/* <LayoutGuide /> */}
       </body>
     </html>

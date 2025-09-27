@@ -15,7 +15,7 @@ export default function Navigation() {
                 </div>
 
                 <div>
-                    <ul className="flex gap-8">
+                    <ul className="hidden lg:flex gap-8">
                         {navigation.map((nav) => (
                             <li key={nav.title}>
                                 <Link href={nav.href}>
