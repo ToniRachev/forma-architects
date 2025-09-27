@@ -32,7 +32,7 @@ export default function Footer() {
                         Designs that breaths
                     </Typography>
 
-                    <ul className="flex gap-4 items-center">
+                    {/* <ul className="flex gap-4 items-center">
                         {navigation.map((nav) => (
                             <li key={nav.title}>
                                 <Typography variant={"body"}>
@@ -40,7 +40,7 @@ export default function Footer() {
                                 </Typography>
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
 
                 <div className="w-full flex flex-col xl:flex-row gap-12 xl:gap-0 justify-between xl:items-end">
