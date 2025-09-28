@@ -1,16 +1,17 @@
 import { clsx } from "clsx";
 import { cva } from "class-variance-authority";
-import { ReactNode } from "react";
+import { ReactNode, ComponentPropsWithoutRef, ElementType, Ref } from "react";
 
+export type TypographyVariant = "big" | "hero" | "section" | "tagline" | "bodyLarge" | "bodyBoldUpper" | "body" | "caption" | "label"
 
 interface TypographyProps {
-    variant: "big" | "hero" | "section" | "tagline" | "bodyLarge" | "bodyBoldUpper" | "body" | "caption" | "label";
+    variant: TypographyVariant;
     className?: string;
     children: ReactNode;
-    color?: "black" | "white";
+    ref?: Ref<HTMLElement>;
 }
 
-const variantToElement: Record<TypographyProps["variant"], keyof HTMLElementTagNameMap> = {
+const variantToElement: Record<TypographyProps["variant"], ElementType> = {
     big: "h1",
     hero: "h1",
     section: "h2",
@@ -41,10 +42,26 @@ const typography = cva("", {
     },
 });
 
-export default function Typography({ variant, className, children, }: Readonly<TypographyProps>) {
+// Create a polymorphic component with proper TypeScript support
+type PolymorphicTypographyProps<T extends ElementType> = TypographyProps &
+    Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps>;
+
+export default function Typography<T extends ElementType = "p">({
+    variant,
+    className,
+    children,
+    ref,
+    ...props
+}: PolymorphicTypographyProps<T>) {
     const Component = variantToElement[variant];
 
     return (
-        <Component className={clsx(typography({ variant }), className)}>{children}</Component>
-    )
+        <Component
+            ref={ref}
+            className={clsx(typography({ variant }), className)}
+            {...props}
+        >
+            {children}
+        </Component>
+    );
 }
