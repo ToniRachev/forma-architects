@@ -4,11 +4,11 @@ import SectionContainer from "@/components/SectionContainer";
 import TextHoverSlideReveal from "@/components/TextHoverSlideReveal";
 import Typography from "@/components/Typography";
 import { team, TeamMemberInterface } from "@/lib/data/team";
-import { BREAKPOINTS, MEDIA } from "@/lib/gsap-constants";
+import { MEDIA } from "@/lib/gsap-constants";
 import { useGSAP, gsap } from "@/lib/gsap-plugins";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 interface MemberNameProps {
     member: TeamMemberInterface;
@@ -77,6 +77,16 @@ export default function StudioTeam() {
     if (!isDesktop) {
         return (
             <SectionContainer>
+                <div className="space-y-4 pb-12">
+                    <Typography variant={"big"}>
+                        Team
+                    </Typography>
+
+                    <Typography variant={"bodyLarge"}>
+                        A collective of visionaries shaping stories through craft, collaboration, and detail.
+                    </Typography>
+                </div>
+
                 <ul>
                     {team.map((member) => (
                         <li key={member.id} className="border-b flex justify-between py-8">
