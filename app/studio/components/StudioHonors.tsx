@@ -29,7 +29,7 @@ export default function StudioHonors() {
     const isDesktop = useMediaQuery(MEDIA.desktop);
 
     return (
-        <SectionContainer>
+        <SectionContainer className="py-24">
             <div className="pb-24">
                 <Typography variant={"big"}>
                     Honors
