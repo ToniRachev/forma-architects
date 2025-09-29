@@ -39,7 +39,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
         <Navigation />
-        <ReactLenis root>
+        <ReactLenis root options={{ duration: 1.2, smoothWheel: true, syncTouch: true, touchMultiplier: 2 }}>
           <main className="pt-[3rem]">
             {children}
           </main>
