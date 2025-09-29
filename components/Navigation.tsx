@@ -3,11 +3,12 @@ import SectionContainer from "./SectionContainer";
 import Typography from "./Typography";
 import { navigation } from "@/lib/data/navigation";
 import Link from "next/link";
+import TextHoverSlideReveal from "./TextHoverSlideReveal";
 
 export default function Navigation() {
     return (
         <header className="w-full fixed h-[3rem] flex items-center border-b border-white mix-blend-difference z-[999999999999] text-white">
-            <SectionContainer className="flex justify-between">
+            <SectionContainer className="flex justify-between items-center">
                 <div>
                     <Typography variant={"bodyBoldUpper"}>
                         Forma Architects
@@ -19,14 +20,14 @@ export default function Navigation() {
                         {navigation.map((nav) => (
                             <li key={nav.title}>
                                 <Link href={nav.href}>
-                                    <Typography variant={"body"}>
+                                    <TextHoverSlideReveal variant={'body'}>
                                         {nav.title}
-                                    </Typography>
+                                    </TextHoverSlideReveal>
                                 </Link>
                             </li>
                         ))}
 
-                        <li className="hidden lg:block">
+                        {/* <li className="hidden lg:block">
                             <div className="flex items-center gap-1 relative">
                                 <Typography variant={"body"}>
                                     Get in Touch
@@ -38,7 +39,7 @@ export default function Navigation() {
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </SectionContainer>
