@@ -43,7 +43,7 @@ export default function RootLayout({
           <main className="pt-[3rem]">
             {children}
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </ReactLenis>
         {/* <LayoutGuide /> */}
       </body>
