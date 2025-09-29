@@ -6,6 +6,7 @@ import LayoutGuide from "@/components/LayoutGuide";
 import Navigation from "@/components/Navigation";
 import ScrollSmootherWrapper from "@/components/ScrollSmootherWrapper";
 import Footer from "@/components/Footer";
+import ReactLenis from "lenis/react";
 
 const geistSans = Geist({
   variable: "--font-heading",
@@ -39,12 +40,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
         <Navigation />
-        <ScrollSmootherWrapper>
+        <ReactLenis root>
           <main className="pt-[3rem]">
             {children}
           </main>
-        </ScrollSmootherWrapper>
-        {/* <Footer /> */}
+        <Footer />
+        </ReactLenis>
         {/* <LayoutGuide /> */}
       </body>
     </html>
