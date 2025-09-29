@@ -27,8 +27,8 @@ const Project = ({ project }: Readonly<{ project: ProjectInterface }>) => {
         const mm = gsap.matchMedia();
         mm.add(MEDIA.desktop, () => {
             gsap.to(image.current, {
-                scale: isHovered ? 1.15 : 1,
-                y: isHovered ? 20 : 0
+                scale: isHovered ? 1.05 : 1,
+                y: isHovered ? 10 : 0
             })
 
             gsap.to(content.current, {
