@@ -34,7 +34,7 @@ const Service = ({ service, active, onMouseEnter, onMouseLeave }: Readonly<Servi
             <div ref={line} className="absolute inset-0 w-full h-full bg-black scale-y-0 origin-bottom" />
 
             <Typography variant={"hero"} className="mix-blend-difference text-white">
-                {service.name}
+                {service.title}
             </Typography>
         </li>
     )
@@ -111,7 +111,7 @@ export default function Services() {
                             >
                                 <Image
                                     src={service.image}
-                                    alt={`Photo of service ${service.name}`}
+                                    alt={`Photo of service ${service.title}`}
                                     fill
                                     className="object-cover"
                                 />
