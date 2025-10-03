@@ -1,0 +1,72 @@
+'use client';
+
+import SectionContainer from "@/components/SectionContainer";
+import Typography from "@/components/Typography";
+import Form from "./components/Form";
+import Company from "./components/Company";
+import { useRef, useState } from "react";
+import ThankYou from "./components/ThankYou";
+import { gsap, useGSAP } from "@/lib/gsap-plugins";
+
+export default function Contact() {
+    const [formSuccess, setFormSuccess] = useState(false);
+
+    const contact = useRef<HTMLDivElement>(null);
+    const thankYou = useRef<HTMLDivElement>(null);
+    const transition = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        if (formSuccess) {
+            gsap.timeline()
+                .to(contact.current, {
+                    opacity: 0,
+                    y: -50,
+                    duration: 1,
+                })
+                .to(transition.current,
+                    {
+                        scaleY: 1,
+                    }, '<+=0.1')
+                .to(transition.current, {
+                    scaleY: 0,
+                    transformOrigin: 'top'
+                }, '>-=0.1')
+                .fromTo(thankYou.current,
+                    {
+                        autoAlpha: 0,
+                        y: 100,
+                    },
+                    {
+                        autoAlpha: 1,
+                        y: 0,
+                    }, '<+=0.1')
+        }
+    }, [formSuccess])
+
+    return (
+        <SectionContainer className="py-24">
+            <div ref={contact} className="flex flex-col gap-12 lg:gap-0 lg:flex-row justify-between lg:items-center">
+                <div>
+                    <div className="space-y-4">
+                        <Typography variant={"hero"}>
+                            Get in Touch
+                        </Typography>
+
+                        <Typography variant={"body"} className="max-w-[30ch]">
+                            Whether you have a project in mind, a question, or just want to say hello, we’d love to hear from you.
+                        </Typography>
+                    </div>
+
+                    <div className="pt-24">
+                        <Form onFormSuccess={() => setFormSuccess(true)} />
+                    </div>
+                </div>
+
+                <Company />
+            </div>
+
+            <ThankYou ref={thankYou} />
+            <div ref={transition} className="absolute inset-0 w-full h-full bg-black origin-bottom scale-y-0" />
+        </SectionContainer>
+    )
+}
