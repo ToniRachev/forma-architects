@@ -145,7 +145,7 @@ export default function Project({ project, nextProject }: Readonly<ProjectProps>
                         </Link>
 
                         <Link href={`/projects/${nextProject.slug}`} className="lg:ml-12 lg:mr-24">
-                            <Button>
+                            <Button kind="link">
                                 {nextProject.name}
                             </Button>
                         </Link>

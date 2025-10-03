@@ -44,6 +44,20 @@ p {
   line-height: 0.95 !important;
 }
 
+label {
+  font-family: var(--font-body);
+  font-size: clamp(0.625rem, 1.2vw, 0.75rem);
+  font-weight: 400;
+}
+
+input,
+textarea {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+/* Hide scroll */
+
 html,
 body {
   overflow: auto;
