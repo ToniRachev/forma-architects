@@ -3,6 +3,7 @@ import Typography from "@/components/Typography"
 import { ProjectInterface, projects } from "@/lib/data/projects"
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProjectCardProps {
     project: ProjectInterface;
@@ -12,32 +13,34 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, orientation }: Readonly<ProjectCardProps>) => {
     return (
         <div className={clsx("w-full pb-6 last:pb-0 lg:pb-0", orientation === "vertical" ? "lg:w-[39vw]" : " lg:w-[61vw]")}>
-            <div className={clsx("w-full relative", orientation === "vertical" ? "aspect-[728/741]" : "aspect-[728/741] lg:aspect-[1184/760]")}>
-                <Image
-                    src={project.image}
-                    alt={`Photo of project ${project.name}`}
-                    fill
-                    className="object-cover"
-                />
-            </div>
-
-            <div className="w-full flex justify-between pt-4">
-                <div className="flex gap-4">
-                    <Typography variant={"body"}>
-                        {project.name}
-                    </Typography>
-
-                    <Typography variant={"label"}>
-                        ({project.year})
-                    </Typography>
+            <Link href={`/projects/${project.slug}`}>
+                <div className={clsx("w-full relative", orientation === "vertical" ? "aspect-[728/741]" : "aspect-[728/741] lg:aspect-[1184/760]")}>
+                    <Image
+                        src={project.image}
+                        alt={`Photo of project ${project.name}`}
+                        fill
+                        className="object-cover"
+                    />
                 </div>
 
-                <div>
-                    <Typography variant={"body"}>
-                        {project.category}
-                    </Typography>
+                <div className="w-full flex justify-between pt-4">
+                    <div className="flex gap-4">
+                        <Typography variant={"body"}>
+                            {project.name}
+                        </Typography>
+
+                        <Typography variant={"label"}>
+                            ({project.year})
+                        </Typography>
+                    </div>
+
+                    <div>
+                        <Typography variant={"body"}>
+                            {project.category}
+                        </Typography>
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
     )
 }
