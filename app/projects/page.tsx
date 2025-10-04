@@ -8,9 +8,9 @@ import Typography from "@/components/Typography";
 import { ProjectInterface, projects } from "@/lib/data/projects";
 import Image from "next/image";
 import { useGSAP, gsap } from "@/lib/gsap-plugins";
-import Link from "next/link";
 import clsx from "clsx";
 import { MEDIA } from "@/lib/gsap-constants";
+import NavLink from "@/components/NavLink";
 
 interface ProjectsGridProps {
     projects: ProjectInterface[];
@@ -43,7 +43,7 @@ const Project = ({ project }: Readonly<{ project: ProjectInterface }>) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <Link href={`/projects/${project.slug}`}>
+            <NavLink href={`/projects/${project.slug}`}>
                 <div className="w-full lg:max-w-[50vw] aspect-[890/515] relative cursor-pointer overflow-hidden">
                     <Image
                         ref={image}
@@ -71,7 +71,7 @@ const Project = ({ project }: Readonly<{ project: ProjectInterface }>) => {
                         </Typography>
                     </div>
                 </div>
-            </Link>
+            </NavLink>
         </li>
     )
 }

@@ -5,9 +5,9 @@ import { ProjectInterface } from "@/lib/data/projects";
 import Image from "next/image";
 import { useCallback, useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap-plugins";
-import Link from "next/link";
 import Button from "@/components/Button";
 import TextHoverSlideReveal from "@/components/TextHoverSlideReveal";
+import NavLink from "@/components/NavLink";
 
 interface ProjectProps {
     project: ProjectInterface;
@@ -140,17 +140,17 @@ export default function Project({ project, nextProject }: Readonly<ProjectProps>
             <div>
                 <div className="pb-4 lg:pb-12">
                     <div className="w-full flex items-center justify-between lg:justify-end">
-                        <Link href={'/projects'} className="whitespace-nowrap">
+                        <NavLink href={'/projects'} className="whitespace-nowrap">
                             <TextHoverSlideReveal variant={"body"}>
                                 Back to projects
                             </TextHoverSlideReveal>
-                        </Link>
+                        </NavLink>
 
-                        <Link href={`/projects/${nextProject.slug}`} className="lg:ml-12 lg:mr-24">
+                        <NavLink href={`/projects/${nextProject.slug}`} className="lg:ml-12 lg:mr-24">
                             <Button kind="link">
                                 {nextProject.name}
                             </Button>
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
                 <div

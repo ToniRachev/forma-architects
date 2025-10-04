@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
+import NavLink from "@/components/NavLink";
 import Typography from "@/components/Typography";
-import Link from "next/link";
 import { Ref } from "react";
 
 export default function ThankYou({ ref }: Readonly<{ ref: Ref<HTMLDivElement> }>) {
@@ -15,11 +15,11 @@ export default function ThankYou({ ref }: Readonly<{ ref: Ref<HTMLDivElement> }>
             </Typography>
 
             <div className="w-fit">
-                <Link href={"/"}>
+                <NavLink href={"/"}>
                     <Button kind={"link"}>
                         Back to home
                     </Button>
-                </Link>
+                </NavLink>
             </div>
         </div>
     )

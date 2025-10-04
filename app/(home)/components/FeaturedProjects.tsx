@@ -1,9 +1,9 @@
+import NavLink from "@/components/NavLink";
 import SectionContainer from "@/components/SectionContainer";
 import Typography from "@/components/Typography"
 import { ProjectInterface, projects } from "@/lib/data/projects"
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 interface ProjectCardProps {
     project: ProjectInterface;
@@ -13,7 +13,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, orientation }: Readonly<ProjectCardProps>) => {
     return (
         <div className={clsx("w-full pb-6 last:pb-0 lg:pb-0", orientation === "vertical" ? "lg:w-[39vw]" : " lg:w-[61vw]")}>
-            <Link href={`/projects/${project.slug}`}>
+            <NavLink href={`/projects/${project.slug}`}>
                 <div className={clsx("w-full relative", orientation === "vertical" ? "aspect-[728/741]" : "aspect-[728/741] lg:aspect-[1184/760]")}>
                     <Image
                         src={project.image}
@@ -40,7 +40,7 @@ const ProjectCard = ({ project, orientation }: Readonly<ProjectCardProps>) => {
                         </Typography>
                     </div>
                 </div>
-            </Link>
+            </NavLink>
         </div>
     )
 }
