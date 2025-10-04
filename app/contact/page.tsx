@@ -16,12 +16,16 @@ export default function Contact() {
     const transition = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        gsap.set(thankYou.current, {
+            autoAlpha: 0,
+        })
+
         if (formSuccess) {
             gsap.timeline()
                 .to(contact.current, {
-                    opacity: 0,
+                    autoAlpha: 0,
                     y: -50,
-                    duration: 1,
+                    duration: 0.5,
                 })
                 .to(transition.current,
                     {
@@ -33,7 +37,6 @@ export default function Contact() {
                 }, '>-=0.1')
                 .fromTo(thankYou.current,
                     {
-                        autoAlpha: 0,
                         y: 100,
                     },
                     {
@@ -45,6 +48,7 @@ export default function Contact() {
 
     return (
         <SectionContainer className="py-24">
+            <ThankYou ref={thankYou} />
             <div ref={contact} className="flex flex-col gap-12 lg:gap-0 lg:flex-row justify-between lg:items-center">
                 <div>
                     <div className="space-y-4">
@@ -65,8 +69,7 @@ export default function Contact() {
                 <Company />
             </div>
 
-            <ThankYou ref={thankYou} />
-            <div ref={transition} className="absolute inset-0 w-full h-full bg-black origin-bottom scale-y-0" />
+            <div ref={transition} className="absolute inset-0 w-full h-full bg-black origin-bottom scale-y-0 pointer-events-none select-none" />
         </SectionContainer>
     )
 }
