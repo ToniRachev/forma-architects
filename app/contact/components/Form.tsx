@@ -31,7 +31,7 @@ export default function Form({ onFormSuccess }: Readonly<{ onFormSuccess: () => 
                     {...register(
                         "fullName",
                         {
-                            // required: { value: true, message: "Name is required" },
+                            required: { value: true, message: "Name is required" },
                             minLength: { value: 2, message: "Name must be at least 2 characters" },
                             maxLength: { value: 80, message: "Name cannot exceed 80 characters" },
                         }
@@ -59,7 +59,7 @@ export default function Form({ onFormSuccess }: Readonly<{ onFormSuccess: () => 
                     {...register(
                         "email",
                         {
-                            // required: { value: true, message: "Email is required" },
+                            required: { value: true, message: "Email is required" },
                             maxLength: { value: 80, message: "Email cannot exceed 80 characters" },
                             pattern: {
                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -76,7 +76,7 @@ export default function Form({ onFormSuccess }: Readonly<{ onFormSuccess: () => 
                     {...register(
                         "phone",
                         {
-                            // required: { value: true, message: "Phone is required" },
+                            required: { value: true, message: "Phone is required" },
                             maxLength: { value: 80, message: "Phone cannot exceed 80 characters" },
                             pattern: {
                                 value: /^\+?[0-9\s-]{7,15}$/,
@@ -97,7 +97,7 @@ export default function Form({ onFormSuccess }: Readonly<{ onFormSuccess: () => 
                     {...register(
                         "message",
                         {
-                            // required: { value: true, message: "Message is required" },
+                            required: { value: true, message: "Message is required" },
                             minLength: { value: 10, message: "Message must be at least 10 characters" },
                             maxLength: { value: 1000, message: "Name cannot exceed 1000 characters" },
                         }
