@@ -14,8 +14,8 @@ export default function Navigation() {
     const lenis = useLenis();
 
     useEffect(() => {
-        lenis?.scrollTo(0, { immediate: true });
-    }, [pathname]);
+        lenis?.scrollTo(0, { immediate: true, force: true });
+    }, [pathname, lenis]);
 
     return (
         <header className="w-full fixed h-[3rem] flex items-center border-b border-white mix-blend-difference z-[999999999999] text-white">
