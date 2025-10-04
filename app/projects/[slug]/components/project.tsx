@@ -43,7 +43,6 @@ export default function Project({ project, nextProject }: Readonly<ProjectProps>
         const viewportWidth = window.innerWidth;
         const scrollDistance = scrollWidth - (viewportWidth - paddingX);
 
-
         gsap.to(slider.current, {
             x: -scrollDistance,
             ease: 'none',
@@ -58,6 +57,9 @@ export default function Project({ project, nextProject }: Readonly<ProjectProps>
                     const velocity = self.getVelocity() / -300;
                     const skewAmount = gsap.utils.clamp(-50, 50, velocity);
                     skewSetters.current.forEach((setSkew) => setSkew(skewAmount));
+                },
+                onScrubComplete: (self) => {
+                    skewSetters.current?.forEach((setSkew) => setSkew(0))
                 },
                 invalidateOnRefresh: true,
             },
