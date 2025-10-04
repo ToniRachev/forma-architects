@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import LayoutGuide from "@/components/LayoutGuide";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ReactLenis from "lenis/react";
@@ -39,13 +38,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
         <Navigation />
-        <ReactLenis root options={{ duration: 1.2, smoothWheel: true, syncTouch: true, touchMultiplier: 2 }}>
+        <ReactLenis root options={{ duration: 1.2, smoothWheel: true, syncTouch: true, touchMultiplier: 2,  }}>
           <main className="pt-[3rem]">
             {children}
           </main>
           <Footer />
         </ReactLenis>
-        {/* <LayoutGuide /> */}
       </body>
     </html>
   );
