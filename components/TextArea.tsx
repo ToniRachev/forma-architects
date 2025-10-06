@@ -1,11 +1,6 @@
 'use client';
 
-import { useState } from "react";
-import { gsap, useGSAP } from "@/lib/gsap-plugins";
 import clsx from "clsx";
-import Typography from "./Typography";
-import useFloatingLabel from "@/lib/hooks/useFloatingLabel";
-import Label from "./Label";
 import BaseField from "./Input/BaseField";
 
 interface InputInterface extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
