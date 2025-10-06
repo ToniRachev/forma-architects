@@ -10,3 +10,5 @@ export const MEDIA = {
     tablet: `(min-width: ${BREAKPOINTS.tabletMin}px) and (max-width: ${BREAKPOINTS.tabletMax}px)`,
     desktop: `(min-width: ${BREAKPOINTS.desktopMin}px)`,
 };
+
+export const MAIN_CONTENT = 'main-content';
