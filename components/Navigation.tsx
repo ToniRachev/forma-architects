@@ -1,7 +1,7 @@
 import SectionContainer from "./SectionContainer";
 import Typography from "./Typography";
 import { navigation } from "@/lib/data/navigation";
-import TextHoverSlideReveal from "./TextHoverSlideReveal";
+import TextSlideReveal from "./TextSlideReveal";
 import NavLink from "./NavLink";
 
 export default function Navigation() {
@@ -21,9 +21,9 @@ export default function Navigation() {
                         {navigation.map((nav) => (
                             <li key={nav.title}>
                                 <NavLink href={nav.href}>
-                                    <TextHoverSlideReveal variant={'body'}>
+                                    <TextSlideReveal variant={'body'}>
                                         {nav.title}
-                                    </TextHoverSlideReveal>
+                                    </TextSlideReveal>
                                 </NavLink>
                             </li>
                         ))}

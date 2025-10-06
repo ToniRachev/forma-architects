@@ -1,7 +1,7 @@
 'use client';
 
 import SectionContainer from "@/components/SectionContainer";
-import TextHoverSlideReveal from "@/components/TextHoverSlideReveal";
+import TextSlideReveal from "@/components/TextSlideReveal";
 import Typography from "@/components/Typography";
 import { team, TeamMemberInterface } from "@/lib/data/team";
 import { MEDIA } from "@/lib/gsap-constants";
@@ -29,9 +29,9 @@ const MemberName = ({ member, setActiveMember, index }: Readonly<MemberNameProps
 
     return (
         <li className="">
-            <TextHoverSlideReveal variant={"hero"} onChange={handleChange} className="text-left">
+            <TextSlideReveal variant={"hero"} onChange={handleChange} className="text-left">
                 {member.name}
-            </TextHoverSlideReveal>
+            </TextSlideReveal>
         </li>
     )
 }
