@@ -3,6 +3,7 @@
 import { gsap, useGSAP } from "@/lib/gsap-plugins";
 import { useCallback, useEffect, useRef } from "react";
 import Typography from "./Typography";
+import TextSlideReveal from "./TextSlideReveal";
 
 const shapes = [
     'M437.3 158.3A99.5 99.5 0 0 0 321.6 42.8a99.5 99.5 0 0 0-163.4 0A99.5 99.5 0 0 0 42.7 158.3a99.5 99.5 0 0 0 0 163.4 99.5 99.5 0 0 0 115.6 115.6 99.5 99.5 0 0 0 163.4 0 99.5 99.5 0 0 0 115.5-115.6 99.5 99.5 0 0 0 0-163.4Z',
@@ -72,9 +73,9 @@ export default function Preloader() {
             </div>
 
             <div className="absolute bottom-12 right-12">
-                <Typography variant="bodyLarge" className="text-white">
+                <TextSlideReveal variant="bodyLarge" className="text-white" active duration={1}>
                     Loading assets...
-                </Typography>
+                </TextSlideReveal>
             </div>
         </div >
     )

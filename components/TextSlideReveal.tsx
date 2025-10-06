@@ -10,9 +10,11 @@ interface TextHoverSlideRevealProps {
     className?: string;
     children: ReactNode;
     onChange?: (state: boolean) => void;
+    active?: boolean;
+    duration?: number;
 }
 
-export default function TextHoverSlideReveal({ variant, className, onChange, children }: Readonly<TextHoverSlideRevealProps>) {
+export default function TextSlideReveal({ variant, className, onChange, active, duration = 0.3, children }: Readonly<TextHoverSlideRevealProps>) {
     const [isHovered, setIsHovered] = useState(false);
 
     const text1 = useRef<HTMLElement>(null);
@@ -31,28 +33,31 @@ export default function TextHoverSlideReveal({ variant, className, onChange, chi
     }, [])
 
     useGSAP(() => {
-        gsap.set(text2.current, {
-            yPercent: 120,
-        })
+        const timeline = gsap.timeline({ paused: true, defaults: { duration: duration, ease: 'power1.inOut' }, repeat: active ? -1 : 0 })
 
-        tl.current = gsap.timeline({ paused: true, defaults: { duration: 0.3, ease: 'power1.inOut' } })
-            .fromTo(text1.current,
-                { yPercent: 0 },
-                { yPercent: -120, },
-                0
-            )
+        timeline.fromTo(text1.current,
+            { yPercent: 0 },
+            { yPercent: -120, },
+            0
+        )
             .fromTo(text2.current,
                 { yPercent: 120 },
                 { yPercent: 0, },
                 0
             );
+
+        tl.current = timeline;
+
     }, [])
 
     useGSAP(() => {
         if (!tl.current) return;
 
-        if (isHovered) {
+        const shouldPlay = active || isHovered;
+
+        if (shouldPlay) {
             tl.current.play();
+
         } else {
             tl.current.reverse();
         }
@@ -60,7 +65,7 @@ export default function TextHoverSlideReveal({ variant, className, onChange, chi
 
     return (
         <button
-            className="relative overflow-hidden cursor-pointer"
+            className={clsx('relative overflow-hidden', !active && 'cursor-pointer')}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
