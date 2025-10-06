@@ -1,8 +1,7 @@
 'use client';
 
-import { useLenis } from "lenis/react";
-import { useRouter } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, } from "react";
+import { useTransition } from "@/lib/context/TransitionContext";
 
 interface NavLinkProps {
     href: string;
@@ -11,14 +10,11 @@ interface NavLinkProps {
 }
 
 export default function NavLink({ href, className, children }: Readonly<NavLinkProps>) {
-    const lenis = useLenis();
-    const router = useRouter();
+    const { startTransition } = useTransition();
 
     const handleClick = (e: React.MouseEvent) => {
         e.preventDefault();
-        lenis?.stop();
-        router.push(href);
-        lenis?.start();
+        startTransition(href);
     }
 
     return <a href={href} target="_top" className={className} onClick={handleClick}>{children}</a>
