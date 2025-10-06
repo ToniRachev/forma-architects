@@ -4,6 +4,7 @@ import { createContext, ReactNode, useContext, useMemo } from "react";
 import { gsap, useGSAP } from "@/lib/gsap-plugins";
 import { usePathname, useRouter } from "next/navigation";
 import { useLenis } from "lenis/react";
+import { MAIN_CONTENT } from "../gsap-constants";
 
 interface TransitionContextState {
     startTransition: (href: string) => void;
@@ -17,7 +18,7 @@ export default function TransitionProvider({ children }: Readonly<{ children: Re
     const lenis = useLenis();
 
     const { contextSafe } = useGSAP(() => {
-        const mainContent = document.querySelector('#main-content');
+        const mainContent = document.querySelector(`#${MAIN_CONTENT}`);
 
         gsap.to(mainContent, {
             opacity: 1,
@@ -29,7 +30,7 @@ export default function TransitionProvider({ children }: Readonly<{ children: Re
     }, [pathname]);
 
     const startTransition = contextSafe((href: string) => {
-        const mainContent = document.querySelector('#main-content');
+        const mainContent = document.querySelector(`#${MAIN_CONTENT}`);
 
         gsap.killTweensOf(mainContent);
         lenis?.stop();
