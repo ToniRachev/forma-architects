@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ReactLenis from "lenis/react";
+import Preloader from "@/components/Preloader";
 
 const geistSans = Geist({
   variable: "--font-heading",
@@ -38,7 +39,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
         <Navigation />
-        <ReactLenis root options={{ duration: 1.2, smoothWheel: true, syncTouch: true, touchMultiplier: 2,  }}>
+        <ReactLenis root options={{ duration: 1.2, smoothWheel: true, syncTouch: true, touchMultiplier: 2, }}>
+          <Preloader />
           <main className="pt-[3rem]">
             {children}
           </main>
