@@ -7,7 +7,7 @@ import Typography from "@/components/Typography";
 import Image from "next/image";
 import { MEDIA } from "@/lib/gsap-constants";
 import usePageEntryAnimation from "@/lib/hooks/usePageEntryAnimation";
-import { TEXT_MASK } from "@/lib/gsap-defaults";
+import { IMAGE_SLIDE, TEXT_MASK } from "@/lib/gsap-defaults";
 
 export default function Hero() {
     const content = useRef<HTMLElement[]>([]);
@@ -18,9 +18,7 @@ export default function Hero() {
         onSetup: (timeline) => {
             timeline.from(content.current, TEXT_MASK, 0)
 
-            timeline.from(imageWrapper.current, {
-                y: 200,
-            }, 0)
+            timeline.from(imageWrapper.current, IMAGE_SLIDE, 0)
 
             const mm = gsap.matchMedia();
 
