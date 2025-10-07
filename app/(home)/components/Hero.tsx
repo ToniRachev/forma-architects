@@ -1,56 +1,78 @@
+'use client';
+
+import { useRef } from "react";
+import { gsap } from "@/lib/gsap-plugins";
 import SectionContainer from "@/components/SectionContainer";
 import Typography from "@/components/Typography";
 import Image from "next/image";
+import { MEDIA } from "@/lib/gsap-constants";
+import usePageEntryAnimation from "@/lib/hooks/usePageEntryAnimation";
+import { TEXT_MASK } from "@/lib/gsap-defaults";
 
 export default function Hero() {
+    const content = useRef<HTMLElement[]>([]);
+    const imageWrapper = useRef<HTMLDivElement>(null);
+    const image = useRef<HTMLImageElement>(null);
+
+    usePageEntryAnimation({
+        onSetup: (timeline) => {
+            timeline.from(content.current, TEXT_MASK, 0)
+
+            timeline.from(imageWrapper.current, {
+                y: 200,
+            }, 0)
+
+            const mm = gsap.matchMedia();
+
+            mm.add(MEDIA.desktop, () => {
+                gsap.to(image.current, {
+                    scrollTrigger: {
+                        trigger: image.current,
+                        start: 'top 110%',
+                        end: 'bottom center',
+                        scrub: true,
+                    },
+                    scale: 1.5,
+                    ease: 'none',
+                })
+            })
+        }
+    })
+
+    const setRef = (element: HTMLElement | null) => {
+        if (element) {
+            content.current.push(element);
+        }
+    }
+
     return (
-        <SectionContainer>
-
-            <div className="w-full h-[calc(100svh-3rem)] flex flex-col justify-center text-center lg:text-left">
+        <SectionContainer className="w-full flex flex-col justify-center items-center pt-[20svh] text-center gap-12 lg:gap-24">
+            <div className="space-y-8">
                 <div className="">
-                    <div>
-                        <Typography variant={"big"}>
-                            Forma
-                        </Typography>
-                    </div>
+                    <Typography variant="big" ref={(el) => setRef(el)} mask>
+                        FORMA.
+                    </Typography>
 
-                    <div className="flex flex-col lg:flex-row py-6 lg:py-4 gap-4 lg:gap-0 w-full lg:justify-end items-center">
-                        <div className="max-w-[55ch] mr-12 shrink-1 hidden lg:block">
-                            <Typography variant={"bodyBoldUpper"}>
-                                We create architecture that merges form and function, shaping spaces where people live, gather, and thrive. From intimate homes to cultural landmarks, our work reflects clarity, sustainability, and a timeless design ethos
-                            </Typography>
-                        </div>
-
-                        <div className="relative w-full lg:max-w-[50vw] aspect-[16/8] lg:aspect-[16/7]">
-                            <Image
-                                src={"/mockup-1.webp"}
-                                alt="Mockup"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
+                    <Typography variant="big" ref={(el) => setRef(el)} mask>
+                        ARCHITECTS.
+                    </Typography>
                 </div>
 
-                <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-0 lg:justify-between lg:items-end">
-                    <div className="order-2 lg:order-1">
-                        <Typography variant={"bodyBoldUpper"}>
-                            Designing spaces that breathe
-                        </Typography>
-                    </div>
-
-                    <div className="order-1 lg:order-2">
-                        <Typography variant={"big"}>
-                            Architects
-                        </Typography>
-
-                        <div className="w-full flex lg:hidden justify-center mr-12 shrink-1   pt-4">
-                            <Typography className="max-w-[55ch]" variant={"bodyBoldUpper"}>
-                                We create architecture that merges form and function, shaping spaces where people live, gather, and thrive. From intimate homes to cultural landmarks, our work reflects clarity, sustainability, and a timeless design ethos
-                            </Typography>
-                        </div>
-                    </div>
+                <div className="flex justify-center">
+                    <Typography variant="bodyBoldUpper" className="max-w-[50ch] text-center" ref={(el) => setRef(el)} mask>
+                        We create architecture that merges form and function, shaping spaces where people live, gather, and thrive. From intimate homes to cultural landmarks, our work reflects clarity, sustainability, and a timeless design ethos
+                    </Typography>
                 </div>
+            </div>
+
+            <div ref={imageWrapper} className="w-full aspect-[1000/1700] lg:aspect-[1800/1200] relative overflow-hidden">
+                <Image
+                    ref={image}
+                    src={'/mockup-1.webp'}
+                    alt="Mockup image"
+                    fill
+                    className="object-cover"
+                />
             </div>
         </SectionContainer>
     )
