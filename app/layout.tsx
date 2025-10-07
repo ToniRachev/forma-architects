@@ -8,6 +8,7 @@ import ReactLenis from "lenis/react";
 import Preloader from "@/components/Preloader";
 import { MAIN_CONTENT } from "@/lib/gsap-constants";
 import TransitionProvider from "@/lib/context/TransitionContext";
+import PreloaderProvider from "@/lib/context/PreloaderContext";
 
 const geistSans = Geist({
   variable: "--font-heading",
@@ -40,16 +41,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${nohemi.variable} antialiased`}
       >
-        <TransitionProvider>
-          <Navigation />
-          <ReactLenis root options={{ duration: 1.2, smoothWheel: true, syncTouch: true, touchMultiplier: 2, }}>
-            <Preloader />
-            <main className="pt-[3rem]" id={MAIN_CONTENT}>
-              {children}
-            </main>
-            <Footer />
-          </ReactLenis>
-        </TransitionProvider>
+        <PreloaderProvider>
+          <TransitionProvider>
+            <Navigation />
+            <ReactLenis root options={{ duration: 1.2, smoothWheel: true, syncTouch: true, touchMultiplier: 2, }}>
+              <Preloader />
+              <main className="pt-[3rem]" id={MAIN_CONTENT}>
+                {children}
+              </main>
+              <Footer />
+            </ReactLenis>
+          </TransitionProvider>
+        </PreloaderProvider>
       </body>
     </html >
   );
