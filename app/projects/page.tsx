@@ -7,10 +7,12 @@ import SectionContainer from "@/components/SectionContainer";
 import Typography from "@/components/Typography";
 import { ProjectInterface, projects } from "@/lib/data/projects";
 import Image from "next/image";
-import { useGSAP, gsap } from "@/lib/gsap-plugins";
+import { useGSAP, gsap, SplitText } from "@/lib/gsap-plugins";
 import clsx from "clsx";
 import { MEDIA } from "@/lib/gsap-constants";
 import NavLink from "@/components/NavLink";
+import usePageEntryAnimation from "@/lib/hooks/usePageEntryAnimation";
+import { IMAGE_SLIDE, SPLIT_TEXT_MASK } from "@/lib/gsap-defaults";
 
 interface ProjectsGridProps {
     projects: ProjectInterface[];
@@ -21,7 +23,6 @@ const Project = ({ project }: Readonly<{ project: ProjectInterface }>) => {
     const [isHovered, setIsHovered] = useState(false);
     const image = useRef<HTMLImageElement>(null);
     const content = useRef<HTMLDivElement>(null);
-
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
@@ -90,16 +91,26 @@ const ProjectsGrid = ({ projects, className }: Readonly<ProjectsGridProps>) => {
 
 export default function Projects() {
 
+    const heading = useRef<HTMLHeadingElement>(null);
+    const projectsList = useRef<HTMLUListElement>(null);
+
+    usePageEntryAnimation({
+        onSetup: (timeline) => {
+            SplitText.create(heading.current, SPLIT_TEXT_MASK(timeline))
+            timeline.from(projectsList.current, IMAGE_SLIDE, 0)
+        }
+    })
+
     return (
         <PageWrapper>
             <PageStartSection>
-                <Typography variant={"hero"} className="max-w-[20ch]">
+                <Typography ref={heading} variant={"hero"} className="max-w-[20ch]">
                     Crafted with vision and detail, our projects tell unique stories.
                 </Typography>
             </PageStartSection>
 
             <SectionContainer className="pb-24">
-                <ul className="space-y-4">
+                <ul ref={projectsList} className="space-y-4">
                     <ProjectsGrid className="lg:grid-cols-2" projects={projects.slice(0, 2)} />
                     <ProjectsGrid className="lg:grid-cols-3" projects={projects.slice(2)} />
                 </ul>
