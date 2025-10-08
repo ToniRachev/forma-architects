@@ -43,6 +43,7 @@ export default function Button({ kind = 'default', children, ...props }: Readonl
                     scale: isHovered ? 1 : 0,
                     rotate: isHovered ? 120 : 0,
                     duration: 0.2,
+                    overwrite: true,
                 }, isHovered ? '-=0.15' : '-=0.3')
         }
     }, { dependencies: [isHovered] })
