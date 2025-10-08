@@ -9,6 +9,8 @@ import ThankYou from "./components/ThankYou";
 import { gsap, useGSAP } from "@/lib/gsap-plugins";
 import usePageEntryAnimation from "@/lib/hooks/usePageEntryAnimation";
 
+//TODO: Extract component to smaller components
+
 export default function Contact() {
     const [formSuccess, setFormSuccess] = useState(false);
 
