@@ -1,3 +1,4 @@
+import Button from "@/components/Button";
 import NavLink from "@/components/NavLink";
 import SectionContainer from "@/components/SectionContainer";
 import Typography from "@/components/Typography"
@@ -85,6 +86,14 @@ export default function FeaturedProjects() {
                         <ProjectCard key={project.id} project={project} orientation={"vertical"} />
                     ))}
                 </div>
+            </div>
+
+            <div className="flex justify-center pt-24">
+                <NavLink href="/projects">
+                    <Button kind="link">
+                        More projects
+                    </Button>
+                </NavLink>
             </div>
         </SectionContainer >
     )
