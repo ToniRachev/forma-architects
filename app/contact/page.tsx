@@ -6,9 +6,8 @@ import Form from "./components/Form";
 import Company from "./components/Company";
 import { useRef, useState } from "react";
 import ThankYou from "./components/ThankYou";
-import { gsap, useGSAP, SplitText } from "@/lib/gsap-plugins";
+import { gsap, useGSAP } from "@/lib/gsap-plugins";
 import usePageEntryAnimation from "@/lib/hooks/usePageEntryAnimation";
-import { SPLIT_TEXT_MASK, TEXT_MASK } from "@/lib/gsap-defaults";
 
 export default function Contact() {
     const [formSuccess, setFormSuccess] = useState(false);
