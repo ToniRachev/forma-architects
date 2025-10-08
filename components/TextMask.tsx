@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from "react";
-import { gsap, useGSAP, SplitText } from "@/lib/gsap-plugins";
+import { gsap, useGSAP, SplitText, ScrollTrigger } from "@/lib/gsap-plugins";
 import Typography, { TypographyVariant } from "./Typography";
 
 interface TextMaskProps {
@@ -27,22 +27,24 @@ export default function TextMask({ variant = 'body', children }: Readonly<TextMa
                     ease: 'power3.out',
                     duration: 1,
                     stagger: { each: 0.1 },
-                    scrollTrigger: {
-                        trigger: maskWrapper.current,
-                        start: 'top bottom',
-                        onUpdate: (scrollSelf) => {
-                            if (!tweenRef.current) return;
-                            const progress = scrollSelf.progress;
-                            if (progress >= 0.2 && !hasPlayed.current) {
-                                hasPlayed.current = true;
-                                tweenRef.current.play();
-                            } else if (progress <= 0 && hasPlayed.current) {
-                                hasPlayed.current = false;
-                                tweenRef.current.pause(0);
-                            }
-                        },
-                    }
                 });
+
+                ScrollTrigger.create({
+                    trigger: maskWrapper.current,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    onUpdate: (scrollSelf) => {
+                        if (!tweenRef.current) return;
+                        const progress = scrollSelf.progress;
+                        if (progress >= 0.2 && !hasPlayed.current) {
+                            hasPlayed.current = true;
+                            tweenRef.current.play();
+                        } else if (progress <= 0 && hasPlayed.current) {
+                            hasPlayed.current = false;
+                            tweenRef.current.pause(0);
+                        }
+                    },
+                })
 
                 tweenRef.current = tween;
                 return tween;
