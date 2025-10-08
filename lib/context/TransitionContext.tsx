@@ -23,9 +23,6 @@ export default function TransitionProvider({ children }: Readonly<{ children: Re
         gsap.to(mainContent, {
             opacity: 1,
             duration: 0.5,
-            onComplete: () => {
-                lenis?.start();
-            }
         })
     }, [pathname]);
 
@@ -33,12 +30,12 @@ export default function TransitionProvider({ children }: Readonly<{ children: Re
         const mainContent = document.querySelector(`#${MAIN_CONTENT}`);
 
         gsap.killTweensOf(mainContent);
-        lenis?.stop();
 
         gsap.to(mainContent, {
             opacity: 0,
             duration: 0.5,
             onComplete: () => {
+                lenis?.scrollTo(0, { immediate: true })
                 router.push(href);
             }
         })
