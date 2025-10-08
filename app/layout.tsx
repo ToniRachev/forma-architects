@@ -48,8 +48,8 @@ export default function RootLayout({
               <Preloader />
               <main className="pt-[3rem]" id={MAIN_CONTENT}>
                 {children}
+                <Footer />
               </main>
-              <Footer />
             </ReactLenis>
           </TransitionProvider>
         </PreloaderProvider>
