@@ -31,6 +31,11 @@ export default function Preloader() {
         const preloaderTl = gsap.timeline(
             {
                 defaults: { duration: 0.5, ease: 'expo.out' },
+                onComplete: () => {
+                    if (preloader.current) {
+                        preloader.current.remove();
+                    }
+                }
             });
         const morphTl = gsap.timeline({ yoyo: true, repeat: -1, defaults: { duration: 1 } });
 
