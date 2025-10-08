@@ -6,7 +6,9 @@ import Form from "./components/Form";
 import Company from "./components/Company";
 import { useRef, useState } from "react";
 import ThankYou from "./components/ThankYou";
-import { gsap, useGSAP } from "@/lib/gsap-plugins";
+import { gsap, useGSAP, SplitText } from "@/lib/gsap-plugins";
+import usePageEntryAnimation from "@/lib/hooks/usePageEntryAnimation";
+import { SPLIT_TEXT_MASK, TEXT_MASK } from "@/lib/gsap-defaults";
 
 export default function Contact() {
     const [formSuccess, setFormSuccess] = useState(false);
@@ -14,6 +16,14 @@ export default function Contact() {
     const contact = useRef<HTMLDivElement>(null);
     const thankYou = useRef<HTMLDivElement>(null);
     const transition = useRef<HTMLDivElement>(null);
+
+    const content = useRef<HTMLDivElement>(null);
+
+    usePageEntryAnimation({
+        onSetup: (timeline) => {
+            timeline.from(contact.current, { y: 50, opacity: 0 }, 0)
+        }
+    })
 
     useGSAP(() => {
         gsap.set(thankYou.current, {
@@ -51,7 +61,7 @@ export default function Contact() {
             <ThankYou ref={thankYou} />
             <div ref={contact} className="flex flex-col gap-12 lg:gap-0 lg:flex-row justify-between lg:items-center">
                 <div>
-                    <div className="space-y-4">
+                    <div ref={content} className="space-y-4">
                         <Typography variant={"hero"}>
                             Get in Touch
                         </Typography>

@@ -8,6 +8,8 @@ import { gsap, useGSAP } from "@/lib/gsap-plugins";
 import Button from "@/components/Button";
 import TextSlideReveal from "@/components/TextSlideReveal";
 import NavLink from "@/components/NavLink";
+import usePageEntryAnimation from "@/lib/hooks/usePageEntryAnimation";
+import { TEXT_MASK } from "@/lib/gsap-defaults";
 
 interface ProjectProps {
     project: ProjectInterface;
@@ -16,17 +18,26 @@ interface ProjectProps {
 
 export default function Project({ project, nextProject }: Readonly<ProjectProps>) {
     const container = useRef<HTMLDivElement>(null);
-
     const slider = useRef<HTMLUListElement>(null);
     const galleryWrapper = useRef<HTMLDivElement>(null);
     const images = useRef<HTMLDivElement[]>([]);
     const skewSetters = useRef<gsap.QuickToFunc[]>(null);
+
+    const content = useRef<HTMLDivElement>(null);
+    const controls = useRef<HTMLDivElement>(null);
 
     const setRef = useCallback((element: HTMLDivElement | null, index: number) => {
         if (element) {
             images.current[index] = element;
         }
     }, [])
+
+    usePageEntryAnimation({
+        onSetup: (timeline) => {
+            timeline.from([container.current, controls.current], { opacity: 0, }, 0)
+            timeline.from(galleryWrapper.current, { clipPath: 'inset(0 100% 0 0)' }, 0)
+        }
+    })
 
     useGSAP(() => {
         skewSetters.current = images.current.map((image) => gsap.quickTo(image, 'skewX', { duration: 0.8, ease: 'power3.out' }))
@@ -68,7 +79,7 @@ export default function Project({ project, nextProject }: Readonly<ProjectProps>
 
     return (
         <div ref={container} className="flex flex-col justify-between relative h-[calc(100svh-3rem)] overflow-hidden py-4 lg:py-12 px-6">
-            <div className="">
+            <div ref={content}>
                 <div className="pb-12">
                     <Typography variant={"bodyBoldUpper"}>
                         {project.name}
@@ -138,7 +149,7 @@ export default function Project({ project, nextProject }: Readonly<ProjectProps>
             </div>
 
             <div>
-                <div className="pb-4 lg:pb-12">
+                <div ref={controls} className="pb-4 lg:pb-12">
                     <div className="w-full flex items-center justify-between lg:justify-end">
                         <NavLink href={'/projects'} className="whitespace-nowrap">
                             <TextSlideReveal variant={"body"}>
@@ -162,7 +173,7 @@ export default function Project({ project, nextProject }: Readonly<ProjectProps>
                             <div
                                 key={`${image}-${index}`}
                                 ref={(element) => setRef(element, index)}
-                                className="w-full aspect-[350/250] sm:aspect-[500/200] lg:w-[30vw] lg:aspect-[550/300] shrink-0 relative"
+                                className="w-full aspect-[350/250] sm:aspect-[500/200] lg:w-[calc((100%-2rem)/3)] lg:aspect-[550/300] shrink-0 relative"
                             >
                                 <Image
                                     src={image}

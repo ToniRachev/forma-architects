@@ -9,6 +9,7 @@ interface TypographyProps {
     className?: string;
     children: ReactNode;
     ref?: Ref<HTMLElement>;
+    mask?: boolean;
 }
 
 const variantToElement: Record<TypographyProps["variant"], ElementType> = {
@@ -51,11 +52,12 @@ export default function Typography<T extends ElementType = "p">({
     className,
     children,
     ref,
+    mask = false,
     ...props
 }: PolymorphicTypographyProps<T>) {
     const Component = variantToElement[variant];
 
-    return (
+    const element = (
         <Component
             ref={ref}
             className={clsx(typography({ variant }), className)}
@@ -63,5 +65,11 @@ export default function Typography<T extends ElementType = "p">({
         >
             {children}
         </Component>
-    );
+    )
+
+    if (mask) {
+        return <div className="overflow-hidden">{element}</div>
+    }
+
+    return element;
 }

@@ -4,6 +4,7 @@ import { gsap, useGSAP } from "@/lib/gsap-plugins";
 import { useCallback, useEffect, useRef } from "react";
 import Typography from "./Typography";
 import TextSlideReveal from "./TextSlideReveal";
+import { usePreloader } from "@/lib/context/PreloaderContext";
 
 const shapes = [
     'M437.3 158.3A99.5 99.5 0 0 0 321.6 42.8a99.5 99.5 0 0 0-163.4 0A99.5 99.5 0 0 0 42.7 158.3a99.5 99.5 0 0 0 0 163.4 99.5 99.5 0 0 0 115.6 115.6 99.5 99.5 0 0 0 163.4 0 99.5 99.5 0 0 0 115.5-115.6 99.5 99.5 0 0 0 0-163.4Z',
@@ -12,6 +13,8 @@ const shapes = [
 ]
 
 export default function Preloader() {
+    const { finishPreloader } = usePreloader();
+
     const progress = useRef<HTMLHeadingElement>(null);
     const preloader = useRef<HTMLDivElement>(null);
     const shapesRefs = useRef<SVGPathElement[]>([]);
@@ -25,7 +28,10 @@ export default function Preloader() {
     useGSAP(() => {
         const morphShape = shapesRefs.current[0];
 
-        const preloaderTl = gsap.timeline({ defaults: { duration: 0.5, ease: 'expo.out' } });
+        const preloaderTl = gsap.timeline(
+            {
+                defaults: { duration: 0.5, ease: 'expo.out' },
+            });
         const morphTl = gsap.timeline({ yoyo: true, repeat: -1, defaults: { duration: 1 } });
 
         shapesRefs.current.slice(1).forEach((shape) => {
@@ -51,7 +57,12 @@ export default function Preloader() {
 
         preloaderTl.to(preloader.current, {
             autoAlpha: 0,
+            duration: 0.8,
         }, '>+=0.5')
+
+        preloaderTl.call(() => {
+            finishPreloader();
+        }, [], '>-0.8')
     }, [])
 
     useEffect(() => {
