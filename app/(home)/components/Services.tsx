@@ -7,6 +7,7 @@ import { ServiceInterface, services } from "@/lib/data/services";
 import Image from "next/image";
 import { MEDIA } from "@/lib/gsap-constants";
 import SectionContainer from "@/components/SectionContainer";
+import NavLink from "@/components/NavLink";
 
 interface ServiceProps {
     service: ServiceInterface;
@@ -31,11 +32,13 @@ const Service = ({ service, active, onMouseEnter, onMouseLeave }: Readonly<Servi
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <div ref={line} className="absolute inset-0 w-full h-full bg-black scale-y-0 origin-bottom" />
+            <NavLink href="/services">
+                <div ref={line} className="absolute inset-0 w-full h-full bg-black scale-y-0 origin-bottom" />
 
-            <Typography variant={"hero"} className="mix-blend-difference text-white">
-                {service.title}
-            </Typography>
+                <Typography variant={"hero"} className="mix-blend-difference text-white">
+                    {service.title}
+                </Typography>
+            </NavLink>
         </li>
     )
 }
