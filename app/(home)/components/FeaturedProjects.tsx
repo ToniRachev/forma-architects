@@ -48,7 +48,7 @@ const ProjectCard = ({ project, orientation }: Readonly<ProjectCardProps>) => {
 export default function FeaturedProjects() {
     return (
         <SectionContainer>
-            <div className="w-full flex flex-col lg:flex-row justify-between pt-24 lg:pt-0">
+            <div className="w-full flex flex-col lg:flex-row justify-between pt-24 lg:pt-[20svhda]">
                 <Typography variant={"hero"} className="max-w-[20ch]">
                     Architectural Highlights
                 </Typography>
