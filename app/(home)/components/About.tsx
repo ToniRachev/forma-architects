@@ -2,6 +2,8 @@ import SectionContainer from "@/components/SectionContainer";
 import Typography from "@/components/Typography";
 import TextMask from "@/components/TextMask";
 import ParallaxImage from "@/components/ParallaxImage";
+import Button from "@/components/Button";
+import NavLink from "@/components/NavLink";
 
 export default function About() {
 
@@ -19,10 +21,18 @@ export default function About() {
                         className="w-full lg:w-[34svw] aspect-[673/779]"
                     />
 
-                    <div className="hidden lg:block max-w-[40ch] pb-12">
-                        <Typography variant="bodyLarge">
+                    <div className="hidden lg:block pb-12 space-y-8">
+                        <Typography variant="bodyLarge" className="max-w-[40ch]">
                             Our work spans residential, cultural, and interior projects.   Each design is rooted in context, shaped by detail, and guided by a belief in timeless simplicity. We create spaces that inspire, connect, and serve daily life. Through simplicity and innovation, we craft architecture that feels timeless, sustainable, and human-centered.
                         </Typography>
+
+                        <div className="w-fit">
+                            <NavLink href={'/studio'}>
+                                <Button kind="link">
+                                    More about us
+                                </Button>
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
             </div>
