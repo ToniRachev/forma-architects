@@ -27,7 +27,7 @@ export default function Hero() {
                     scrollTrigger: {
                         trigger: image.current,
                         start: 'top 110%',
-                        end: 'bottom center',
+                        end: 'bottom top',
                         scrub: true,
                     },
                     scale: 1.5,
