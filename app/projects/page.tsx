@@ -111,8 +111,8 @@ export default function Projects() {
 
             <SectionContainer className="pb-24">
                 <ul ref={projectsList} className="space-y-4">
-                    <ProjectsGrid className="lg:grid-cols-2" projects={projects.slice(0, 2)} />
-                    <ProjectsGrid className="lg:grid-cols-3" projects={projects.slice(2)} />
+                    <ProjectsGrid className="lg:grid-cols-2 gap-4" projects={projects.slice(0, 2)} />
+                    <ProjectsGrid className="lg:grid-cols-3 gap-4" projects={projects.slice(2)} />
                 </ul>
             </SectionContainer>
 
