@@ -27,10 +27,10 @@ export default function Hero() {
                     scrollTrigger: {
                         trigger: image.current,
                         start: 'top 110%',
-                        end: 'bottom top',
+                        end: 'top top',
                         scrub: true,
                     },
-                    scale: 1.5,
+                    scale: 1.3,
                     ease: 'none',
                 })
             })
