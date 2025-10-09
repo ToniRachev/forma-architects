@@ -26,7 +26,7 @@ export default function Hero() {
                 gsap.to(image.current, {
                     scrollTrigger: {
                         trigger: image.current,
-                        start: 'top 110%',
+                        start: 'top bottom',
                         end: 'top top',
                         scrub: true,
                     },
@@ -66,10 +66,11 @@ export default function Hero() {
             <div ref={imageWrapper} className="w-full aspect-[1000/1700] lg:aspect-[1800/1200] relative overflow-hidden">
                 <Image
                     ref={image}
-                    src={'/mockup-1.webp'}
+                    src={'/home/hero.jpg'}
                     alt="Mockup image"
                     fill
                     className="object-cover"
+                    quality={100}
                 />
             </div>
         </SectionContainer>
