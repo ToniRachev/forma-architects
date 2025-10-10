@@ -46,7 +46,7 @@ export default function StudioHonors() {
                 {isDesktop && (
                     <div className="w-[40vw] aspect-[582/600] relative">
                         <Image
-                            src={"/mockup-1.webp"}
+                            src={"/studio/honors.webp"}
                             alt="Mockup image"
                             fill
                             className="object-cover"

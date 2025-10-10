@@ -37,7 +37,7 @@ export default function StudioHero() {
 
                 <div ref={imageWrapper} className="w-full lg:w-[55vw] h-full aspect-[1076/582] relative">
                     <Image
-                        src={"/mockup-1.webp"}
+                        src={"/studio/hero.webp"}
                         alt="Mockup image"
                         fill
                         className="object-cover"

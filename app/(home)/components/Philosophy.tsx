@@ -6,7 +6,7 @@ export default function Philosophy() {
     return (
         <div className="bg-background w-full z-50">
             <SectionContainer>
-                <div className="w-full h-[100svh] flex flex-col justify-between lg:grid lg:grid-cols-3 lg:py-12 lg:gap-50  bg-background">
+                <div className="w-full h-[100svh] flex justify-between lg:py-12 lg:gap-50  bg-background">
                     <div className="flex flex-col justify-between">
                         <Typography variant={"hero"} className="max-w-[7ch]">
                             The Way we Think
@@ -18,18 +18,7 @@ export default function Philosophy() {
 
                         <div className="w-[30vw] aspect-[576/333] relative hidden lg:block">
                             <Image
-                                src={'/mockup-1.webp'}
-                                alt="Mockup image"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="h-full flex items-center">
-                        <div className="w-full lg:w-[24vw] h-fit aspect-[465/258] relative">
-                            <Image
-                                src={'/mockup-1.webp'}
+                                src={'/home/philosophy.webp'}
                                 alt="Mockup image"
                                 fill
                                 className="object-cover"

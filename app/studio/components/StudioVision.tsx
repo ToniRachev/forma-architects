@@ -33,7 +33,7 @@ export default function StudioVision() {
                 <div className="w-full  lg:w-fit grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
                     <div className="w-full aspect-[300/500] lg:w-[10vw] lg:aspect-[197/385] relative">
                         <Image
-                            src={"/mockup-1.webp"}
+                            src={"/studio/vision-1.webp"}
                             alt="Mockup image"
                             fill
                             className="object-cover"
@@ -42,7 +42,7 @@ export default function StudioVision() {
 
                     <div className="w-full aspect-[300/500] lg:w-[10vw] lg:aspect-[197/385] relative">
                         <Image
-                            src={"/mockup-1.webp"}
+                            src={"/studio/vision-2.webp"}
                             alt="Mockup image"
                             fill
                             className="object-cover"
@@ -52,7 +52,7 @@ export default function StudioVision() {
                     {isDesktop && (
                         <div className="w-full aspect-[300/500] lg:w-[10vw] lg:aspect-[197/385] relative">
                             <Image
-                                src={"/mockup-1.webp"}
+                                src={"/studio/vision-3.webp"}
                                 alt="Mockup image"
                                 fill
                                 className="object-cover"

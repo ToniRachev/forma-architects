@@ -1,7 +1,6 @@
 'use client';
 
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap-plugins";
-import SectionContainer from "@/components/SectionContainer";
 import Typography from "@/components/Typography";
 import { services } from "@/lib/data/services";
 import Image from "next/image";
@@ -95,7 +94,7 @@ export default function ServicesCard() {
                         </div>
 
                         <div className="xl:flex-3/5 flex justify-center items-center">
-                            <div className="w-full xl:w-[55vw] aspect-[1046/498] md:aspect-[1300/498] xl:aspect-[1046/498] relative">
+                            <div className="w-full xl:w-[55vw] aspect-[1046/498] md:aspect-[1300/498] xl:aspect-[1046/600] relative">
                                 <Image
                                     src={service.image}
                                     alt="Service mockup image"

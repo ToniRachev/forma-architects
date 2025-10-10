@@ -15,7 +15,7 @@ export default function StatementBlock() {
                 <div className="w-full lg:w-[40svw]">
                     <div className="w-full lg:w-[40svw] aspect-[749/448] relative">
                         <Image
-                            src={"/mockup-1.webp"}
+                            src={"/services-page/statement.webp"}
                             alt="Mockup image"
                             fill
                             className="object-cover"

@@ -30,7 +30,7 @@ export default function Hero() {
                         end: 'top top',
                         scrub: true,
                     },
-                    scale: 1.3,
+                    scale: 1.4,
                     ease: 'none',
                 })
             })
@@ -66,7 +66,7 @@ export default function Hero() {
             <div ref={imageWrapper} className="w-full aspect-[1000/1700] lg:aspect-[1800/1200] relative overflow-hidden">
                 <Image
                     ref={image}
-                    src={'/home/hero.jpg'}
+                    src={'/home/hero.webp'}
                     alt="Mockup image"
                     fill
                     className="object-cover"

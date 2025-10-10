@@ -65,7 +65,7 @@ export default function ServicesProcess() {
                 <div className="shrink-0 flex flex-col lg:flex-row lg:justify-center lg:items-center gap-4 lg:gap-24">
                     <div className="lg:w-[46svw] h-fit aspect-[877/542] relative">
                         <Image
-                            src={"/mockup-1.webp"}
+                            src={"/services-page/process-1.webp"}
                             alt="Mockup image"
                             fill
                             className="object-cover"
@@ -83,7 +83,7 @@ export default function ServicesProcess() {
                     <div className="h-full flex items-end justify-end">
                         <div className="hidden lg:block w-[20svw] aspect-[373/227] relative">
                             <Image
-                                src={"/mockup-1.webp"}
+                                src={"/services-page/process-2.webp"}
                                 alt="Mockup image"
                                 fill
                                 className="object-cover"
@@ -94,10 +94,10 @@ export default function ServicesProcess() {
                     <div className="h-full flex flex-col justify-between gap-4 lg:gap-0">
                         <div className="w-full lg:w-[49svw] h-fit aspect-[877/450] relative mt-12">
                             <Image
-                                src={"/mockup-1.webp"}
+                                src={"/services-page/process-3.webp"}
                                 alt="Mockup image"
                                 fill
-                                className="object-cover"
+                                className="object-cover object-[50%_90%]"
                             />
                         </div>
 
@@ -117,7 +117,7 @@ export default function ServicesProcess() {
 
                         <div className="w-full lg:w-[47svw] h-fit aspect-[877/542] relative">
                             <Image
-                                src={"/mockup-1.webp"}
+                                src={"/services-page/process-4.webp"}
                                 alt="Mockup image"
                                 fill
                                 className="object-cover"
