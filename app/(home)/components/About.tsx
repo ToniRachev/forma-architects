@@ -29,7 +29,7 @@ export default function About() {
                         <div className="w-fit">
                             <NavLink href={'/studio'}>
                                 <Button kind="link">
-                                    More about us
+                                    Who We Are
                                 </Button>
                             </NavLink>
                         </div>

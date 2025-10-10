@@ -91,7 +91,7 @@ export default function FeaturedProjects() {
             <div className="flex justify-center pt-24">
                 <NavLink href="/projects">
                     <Button kind="link">
-                        More projects
+                        Our Portfolio
                     </Button>
                 </NavLink>
             </div>
