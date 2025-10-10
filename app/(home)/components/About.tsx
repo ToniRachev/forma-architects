@@ -16,7 +16,7 @@ export default function About() {
 
                 <div className="flex justify-center items-end gap-12">
                     <ParallaxImage
-                        src="/mockup-1.webp"
+                        src="/home/about.webp"
                         alt="Mockup image"
                         className="w-full lg:w-[34svw] aspect-[673/779]"
                     />

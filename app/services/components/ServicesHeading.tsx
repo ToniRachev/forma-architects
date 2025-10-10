@@ -42,7 +42,7 @@ export default function ServicesHeading() {
                     {isDesktop && (
                         <div className="w-[7vw] h-fit aspect-[136/191] relative">
                             <Image
-                                src={"/mockup-1.webp"}
+                                src={"/services-page/hero-2.webp"}
                                 alt="Mockup image"
                                 fill
                                 className="object-cover"
@@ -55,7 +55,7 @@ export default function ServicesHeading() {
             <div className="space-y-4 pt-12">
                 <div ref={bigImage} className="w-full aspect-[200/150] lg:w-[12vw] lg:aspect-[251/346] relative">
                     <Image
-                        src={"/mockup-1.webp"}
+                        src={"/services-page/hero-1.webp"}
                         alt="Mockup image"
                         fill
                         className="object-cover"

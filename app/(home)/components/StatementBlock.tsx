@@ -12,7 +12,7 @@ export default function StatementBlock() {
     return (
         <div className="relative">
             <ParallaxImage
-                src="/mockup-4.jpg"
+                src="/home/building.webp"
                 alt="Mockup image"
                 className="w-[100svw] aspect-[1920/2000]"
             />
